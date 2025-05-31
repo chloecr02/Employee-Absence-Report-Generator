@@ -11,7 +11,7 @@ int getNumOfEmployees();
 int getTotalDaysAbsent(int);
 double calculateAvgDaysAbsent(int, int);
 // global variable ofstream to output the file named: "employeeAbsences.txt"
-ofstream outFile("/Users/chloecraan/Desktop/CMSC140/Project 4 A/CraanChloe_Pr4/CraanChloe_Pr4/CraanChloe_Pr4/employeeAbsences.txt");
+ofstream outFile("/Users/user/Desktop//filename/employeeAbsences.txt");
 
 int main()
 {
