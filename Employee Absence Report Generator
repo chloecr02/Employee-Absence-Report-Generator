@@ -19,7 +19,7 @@ int main()
     int numberEmployees, totalNumberDaysAbsent;
     double averageAbsence;
     // Programmer's name
-    string programmerName = "Anne-Yaëlle Chloé Craan";
+    string programmerName = "Chloé Craan";
 
     cout << "Calculate the average number of days a company's employees are absent.\n" << endl;
 
@@ -34,7 +34,7 @@ int main()
     outFile << "Total employees: " << numberEmployees << endl;
     outFile << "Total days absent: " << totalNumberDaysAbsent << endl;
     outFile << "Average days absent: " << setprecision(2) << fixed << averageAbsence << endl;
-    outFile << "\nClass: CMSC140 30346\nAssignment: Project 4\nProgrammer: Anne-Yaelle Chloé Craan\nDue Date: April 24th 2025";
+    outFile << "\nClass: Assignment: Employee Absence Report Generator\nProgrammer: Chloé Craan\n";
     outFile.close();
     
     cout << "Programmer: " << programmerName << endl;
