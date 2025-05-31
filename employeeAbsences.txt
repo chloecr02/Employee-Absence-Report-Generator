@@ -10,7 +10,5 @@ Total employees: 4
 Total days absent: 4
 Average days absent: 1.00
 
-Class: CMSC140 30346
-Assignment: Project 4
-Programmer: Anne-Yaelle Chloé Craan
-Due Date: April 24th 2025
+Assignment: Employee Absence Report Generator
+Programmer: Chloé Craan
