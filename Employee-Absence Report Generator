@@ -1,0 +1,89 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+//For the global variable ofstream to output the file
+#include <fstream>
+
+using namespace std;
+
+int getNumOfEmployees();
+int getTotalDaysAbsent(int);
+double calculateAvgDaysAbsent(int, int);
+// global variable ofstream to output the file named: "employeeAbsences.txt"
+ofstream outFile("/Users/chloecraan/Desktop/CMSC140/Project 4 A/CraanChloe_Pr4/CraanChloe_Pr4/CraanChloe_Pr4/employeeAbsences.txt");
+
+int main()
+{
+
+    int numberEmployees, totalNumberDaysAbsent;
+    double averageAbsence;
+    // Programmer's name
+    string programmerName = "Anne-Yaëlle Chloé Craan";
+
+    cout << "Calculate the average number of days a company's employees are absent.\n" << endl;
+
+
+    // Call function of getNumOfEmployees
+    numberEmployees = getNumOfEmployees();
+    // Call function of getTotalDaysAbsent
+    totalNumberDaysAbsent = getTotalDaysAbsent(numberEmployees);
+    // Call function of calculateAvgDaysAbsent
+    averageAbsence = calculateAvgDaysAbsent(totalNumberDaysAbsent, numberEmployees);
+    outFile << "\n";
+    outFile << "Total employees: " << numberEmployees << endl;
+    outFile << "Total days absent: " << totalNumberDaysAbsent << endl;
+    outFile << "Average days absent: " << setprecision(2) << fixed << averageAbsence << endl;
+    outFile << "\nClass: CMSC140 30346\nAssignment: Project 4\nProgrammer: Anne-Yaelle Chloé Craan\nDue Date: April 24th 2025";
+    outFile.close();
+    
+    cout << "Programmer: " << programmerName << endl;
+
+    return 0;
+}
+
+// Definition of function getNumOfEmployees
+int getNumOfEmployees()
+{
+    // Defining variable for number of employees
+    int numberEmployees;
+    cout << "Please enter the number of employees in the company: ";
+    cin >> numberEmployees;
+    return numberEmployees;
+}
+
+// Definition of function getTotalDaysAbsent
+int getTotalDaysAbsent(int numberEmployees)
+{
+    // Defining variables for employeeID and number of days abscent for employees
+    int employeeID, numberDaysAbsent, totalDaysAbsent = 0;
+    
+    outFile << "EMPLOYEE ABSENCE REPORT\n" << endl;
+    outFile << left << setw(15) << "EMPLOYEE ID" << "DAYS ABSENT" << endl;
+
+    // for loop (..) {
+    for (int i = 1; numberEmployees >= i; i++) {
+        cout << "Please enter an employee ID: ";
+        cin >> employeeID;
+        outFile << left << setw(15) << employeeID;
+        cout << "Please enter the number of days this employee was absent: ";
+        cin >> numberDaysAbsent;
+        // validation
+        while (numberDaysAbsent < 0) {
+            cout << "The number of days must not be negative." << endl;
+            cout << "Please re-enter the number of days absent: ";
+            cin >> numberDaysAbsent;
+        }
+        totalDaysAbsent += numberDaysAbsent; //totalDaysAbsent = totalDaysAbsent + numberDaysAbsent;
+        outFile << numberDaysAbsent << endl;
+    } // end loop
+    // return has to be changed to a different variable
+    return totalDaysAbsent;
+}
+
+// Definition of function calculateAvgDaysAbsent
+double calculateAvgDaysAbsent(int numberDaysAbsent, int numberEmployee)
+{
+    double averageAbsence = static_cast<double>(numberDaysAbsent) / numberEmployee;
+    return averageAbsence;
+}
